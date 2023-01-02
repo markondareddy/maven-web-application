@@ -36,14 +36,14 @@ pipeline{
             }
         }
         
-         stage('sonarqube') {
-            steps {
-          withSonarQubeEnv('jenkins-sonarqube') {
-               sh 'mvn sonar:sonar'  
-           }
-        }
+        // stage('sonarqube') {
+            //steps {
+        //  withSonarQubeEnv('jenkins-sonarqube') {
+               //sh 'mvn sonar:sonar'  
+         //  }
+       // }
        
-    }
+   // }
     
     }
 }
