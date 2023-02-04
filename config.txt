@@ -2,3 +2,6 @@ this is for pollscm
 
 
 this is maven web project
+
+
+updated dev1 resource
