@@ -1,49 +1,35 @@
+
 pipeline{
     agent any
+    
     tools{
-        maven "maven 3.8"
+        maven 'maven3.8'
     }
     
     stages{
-        stage('scm'){
+        stage('Continuous Download'){
             steps{
-                git credentialsId: 'git-credentails', url: 'https://github.com/markondareddy/maven-web-application.git'
+                git branch: 'dev', credentialsId: 'git-credential', url: 'https://github.com/markondareddy/maven-web-application.git'
             }
-            
         }
         
-        stage('compile-code'){
+         stage('compile SC'){
             steps{
                 sh 'mvn compile'
             }
-            
         }
         
-        
-        
-         stage('package'){
+        stage('Generate Artifact'){
             steps{
                 sh 'mvn package'
             }
-            
         }
         
-        stage('Artifact') {
-            steps {
-                // maven artifacts
-               archiveArtifacts 'target/*.war'
-            
+        stage('Continuous Deployment'){
+            steps{
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-credential', path: '', url: 'http://18.207.233.240:8080/')], contextPath: 'maven-web-javaapp', war: '**/*.war'
             }
         }
         
-        // stage('sonarqube') {
-            //steps {
-        //  withSonarQubeEnv('jenkins-sonarqube') {
-               //sh 'mvn sonar:sonar'  
-         //  }
-       // }
-       
-   // }
-    
     }
 }
