@@ -6,5 +6,6 @@ updated for PollSCM configuration
 this is maven-web-application
 
 
+added one line
 
 updated config file
