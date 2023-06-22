@@ -1,6 +1,6 @@
 welcome to mave web application
 
-
+updated devops resource
 
 
 updated file 
