@@ -2,5 +2,7 @@ welcome to mave web application
 
 updated devops resource
 
+added dev1 resource
+
 
 updated file 
