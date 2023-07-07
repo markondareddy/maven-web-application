@@ -8,7 +8,8 @@ pipeline{
     
     stages{
         stage('Continuous Download'){
-            steps{
+            steps
+	    {   echo "clone the project repo"
                 git branch: 'dev', credentialsId: 'git-credential', url: 'https://github.com/markondareddy/maven-web-application.git'
             }
         }
