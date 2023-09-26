@@ -9,3 +9,6 @@ this is maven-web-application
 added one line
 
 updated config file
+
+
+testing the pollscm
