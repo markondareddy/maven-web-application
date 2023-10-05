@@ -1,36 +1,39 @@
-
-pipeline{
+pipeline {
     agent any
     
     tools{
-        maven 'maven3.8'
+         //configure build tools
+        maven 'maven3.8.6'
     }
-    
-    stages{
-        stage('Continuous Download'){
-            steps
-	    {   echo "clone the project repo"
-                git branch: 'dev', credentialsId: 'git-credential', url: 'https://github.com/markondareddy/maven-web-application.git'
+
+    stages {
+        stage('scm') {
+            steps {
+               git branch: 'dev', credentialsId: 'git-credentials', url: 'https://github.com/markondareddy/maven-web-application.git'
             }
-        }
+        }   
         
-         stage('compile SC'){
-            steps{
-                sh 'mvn compile'
+        stage('compile') {
+            steps {
+               echo 'compile the source code'
+               bat 'mvn compile'
             }
-        }
+        } 
         
-        stage('Generate Artifact'){
-            steps{
-                sh 'mvn package'
+         stage('Artifact') {
+            steps {
+               echo 'Generating artifact file'
+               bat 'mvn package'
             }
-        }
+        } 
         
-        stage('Continuous Deployment'){
-            steps{
-                deploy adapters: [tomcat9(credentialsId: 'tomcat-credential', path: '', url: 'http://18.207.233.240:8080/')], contextPath: 'maven-web-javaapp', war: '**/*.war'
+         stage('Deploy') {
+            steps {
+               echo 'compile the source code'
+             // deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8090/')], contextPath: 'maven-web-application', war: '**/*.war'
+              
             }
-        }
+        } 
         
     }
 }
