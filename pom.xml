@@ -90,19 +90,11 @@
 	</dependencies>
 	
 	<distributionManagement>
-	.
-	    <repository>
-	      <id>nexus</id>
-	      <name>Devops Markonda Reddy Releases Nexus Repository</name>
-	      <url>http://54.255.174.111:8081/repository/flipkart-release/</url>
-	    </repository>
-	    
-	    <snapshotRepository>
+	.    <snapshotRepository>
 	      <id>devopsnexus</id>
 	      <name>Devops Markonda Reddy Snapshot Nexus Repository </name>
 	      <url>http://localhost:8081/repository/devops/</url>
-	    </snapshotRepository>
-	    
+	    </snapshotRepository>	    
 	</distributionManagement>
 	
 	<build>
