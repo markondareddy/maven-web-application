@@ -93,7 +93,7 @@
       <snapshotRepository>
         <id>crm-project</id>
         <name>devops markonda</name>
-	<url>http://3.88.106.179:8081/devopsmarkonda/repository/crm-projectsnapshot/</url>
+	<url>http://localhost:8081/repository/devops/</url>
       </snapshotRepository>
       <repository>
         <id>crm-project</id>
